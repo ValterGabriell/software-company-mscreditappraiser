@@ -1,6 +1,6 @@
 spring:
   application:
-    name: mslogin
+    name: mscredit
 server:
   port: 0
 
@@ -10,3 +10,4 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+

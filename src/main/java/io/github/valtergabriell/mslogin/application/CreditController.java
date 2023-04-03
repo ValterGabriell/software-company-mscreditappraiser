@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("login")
+@RequestMapping("credit")
 @RequiredArgsConstructor
-public class LoginController {
-    private final LoginService loginService;
+public class CreditController {
+    private final CreditService creditService;
 
 
     @GetMapping
@@ -23,7 +23,7 @@ public class LoginController {
 
     @GetMapping(value = "account-data", params = "cpf")
     public ResponseEntity getAccountData(@RequestParam("cpf") String cpf) {
-        AccountData accountData = loginService.getAccountData(cpf);
+        AccountData accountData = creditService.getAccountData(cpf);
         return ResponseEntity.ok(accountData);
     }
 }
