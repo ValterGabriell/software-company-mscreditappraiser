@@ -3,6 +3,7 @@ package io.github.valtergabriell.mslogin.application.dto;
 import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
@@ -24,4 +25,6 @@ public class AccountData {
     private String gender;
 
     private String password;
+
+    private BigDecimal income;
 }
