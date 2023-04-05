@@ -51,8 +51,8 @@ public class CreditService {
             }
 
             RequestCardData requestCardData = new RequestCardData();
-            requestCardData.setCardId(UUID.randomUUID().toString());
             requestCardData.setCardLimit(this.limit);
+            requestCardData.setCpf(cpf);
 
             cardEmit.requestCard(requestCardData);
             var protocol = UUID.randomUUID().toString();
