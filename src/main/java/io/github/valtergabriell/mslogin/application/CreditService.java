@@ -22,14 +22,10 @@ import java.util.UUID;
 public class CreditService {
 
     private final ClientAccountResources clientAccountResources;
-    private final CreateCardEmit cardEmit;
-
-    private String cpf;
-    private BigDecimal limit;
+    private final CreateCardEmit cardEmit;private BigDecimal limit;
 
     public AccountData getAccountData(String cpf) {
         ResponseEntity<AccountData> accountData = clientAccountResources.getAccountData(cpf);
-        this.cpf = accountData.getBody().getCpf();
         return accountData.getBody();
     }
 
@@ -58,9 +54,7 @@ public class CreditService {
             var protocol = UUID.randomUUID().toString();
             return new RequestCardDataProtocol(protocol, cpf, this.limit);
 
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        } catch (ErroResponse e) {
+        } catch (JsonProcessingException | ErroResponse e) {
             throw new RuntimeException(e);
         }
     }
