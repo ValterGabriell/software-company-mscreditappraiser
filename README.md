@@ -1,4 +1,4 @@
-<h1 align="center">Microserviços de avaliação de créditos dos clientes - Sistema Bancário</h1>
+<h1 align="center">Microserviços de avaliação de créditos dos clientes - Empresa de Software</h1>
 <p align="center"><i>Repositório responsável avaliar quanto crédito será disponibilizado para um usuário e enviar essa requisição para a fila no RabbitMQ.</i></p>
 
 ##  Sobre esse projeto
