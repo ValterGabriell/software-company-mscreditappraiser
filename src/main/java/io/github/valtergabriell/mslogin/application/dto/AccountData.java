@@ -10,9 +10,7 @@ import java.time.LocalDate;
 @Builder
 public class AccountData {
 
-    private String cpf;
-
-    private LocalDate birthDate;
+    private String identifier;
 
     private LocalDate accountDate;
 
@@ -21,10 +19,6 @@ public class AccountData {
     private String clientPhoneNumber;
 
     private String clientEmail;
-
-    private String gender;
-
-    private String password;
 
     private BigDecimal income;
 }

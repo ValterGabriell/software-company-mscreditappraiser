@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Service
@@ -24,23 +23,20 @@ public class CreditService {
     private final ClientAccountResources clientAccountResources;
     private final CreateCardEmit cardEmit;private BigDecimal limit;
 
-    public AccountData getAccountData(String cpf) {
-        ResponseEntity<AccountData> accountData = clientAccountResources.getAccountData(cpf);
+    public AccountData getAccountData(String id) {
+        ResponseEntity<AccountData> accountData = clientAccountResources.getAccountData(id);
         return accountData.getBody();
     }
 
-    public BigDecimal calculateCredit(String cpf) {
-        AccountData accountData = this.getAccountData(cpf);
-        int year = accountData.getBirthDate().getYear();
-        int currentYear = LocalDate.now().getYear();
-        int age = currentYear - year;
-        int percent = 40;
-        BigDecimal limit = accountData.getIncome().multiply(BigDecimal.valueOf(age)).divide(BigDecimal.valueOf(percent));
+    public BigDecimal calculateCredit(String id) {
+        AccountData accountData = this.getAccountData(id);
+        double percent = 0.4;
+        BigDecimal limit = accountData.getIncome().multiply(BigDecimal.valueOf(percent));
         this.limit = limit;
         return limit;
     }
 
-    public RequestCardDataProtocol requestCard(String cpf) {
+    public RequestCardDataProtocol requestCard(String id) {
         try {
             if (this.limit == null){
                 throw new ErroResponse("Erro ao criar cartão, limite não definido");
@@ -48,11 +44,11 @@ public class CreditService {
 
             RequestCardData requestCardData = new RequestCardData();
             requestCardData.setCardLimit(this.limit);
-            requestCardData.setCpf(cpf);
+            requestCardData.setIdentifier(id);
 
             cardEmit.requestCard(requestCardData);
             var protocol = UUID.randomUUID().toString();
-            return new RequestCardDataProtocol(protocol, cpf, this.limit);
+            return new RequestCardDataProtocol(protocol, id, this.limit);
 
         } catch (JsonProcessingException | ErroResponse e) {
             throw new RuntimeException(e);

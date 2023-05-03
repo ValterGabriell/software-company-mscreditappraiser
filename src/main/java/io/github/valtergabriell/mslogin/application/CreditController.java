@@ -21,22 +21,22 @@ public class CreditController {
         return "ok";
     }
 
-    @GetMapping(value = "account-data", params = "cpf")
-    public ResponseEntity getAccountData(@RequestParam("cpf") String cpf) {
-        AccountData accountData = creditService.getAccountData(cpf);
+    @GetMapping(value = "account-data", params = "id")
+    public ResponseEntity getAccountData(@RequestParam("id") String id) {
+        AccountData accountData = creditService.getAccountData(id);
         return ResponseEntity.ok(accountData);
     }
 
-    @GetMapping(value = "limit", params = {"cpf"})
-    public ResponseEntity getCreditLimit(@RequestParam("cpf") String cpf) {
-        BigDecimal bigDecimal = creditService.calculateCredit(cpf);
+    @GetMapping(value = "limit", params = {"id"})
+    public ResponseEntity getCreditLimit(@RequestParam("id") String id) {
+        BigDecimal bigDecimal = creditService.calculateCredit(id);
         return ResponseEntity.ok(bigDecimal);
     }
 
-    @PostMapping(value = "request", params = {"cpf"})
-    public ResponseEntity requestCard(@RequestParam("cpf") String cpf) {
+    @PostMapping(value = "request", params = {"id"})
+    public ResponseEntity requestCard(@RequestParam("id") String id) {
         try {
-            RequestCardDataProtocol requestCardDataProtocol = creditService.requestCard(cpf);
+            RequestCardDataProtocol requestCardDataProtocol = creditService.requestCard(id);
             return ResponseEntity.ok(requestCardDataProtocol);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());

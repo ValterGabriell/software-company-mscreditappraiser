@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Data
 public class RequestCardData {
-    private String cpf;
+    private String identifier;
     private BigDecimal cardLimit;
 
 }
