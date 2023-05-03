@@ -1,4 +1,4 @@
-<h1 align="center">Microserviços de avaliação de créditos dos clientes - Sistema Bancário</h1>
+<h1 align="center">Microserviços de avaliação de créditos dos clientes - Empresa de Software</h1>
 <p align="center"><i>Repositório responsável avaliar quanto crédito será disponibilizado para um usuário e enviar essa requisição para a fila no RabbitMQ.</i></p>
 
 ##  Sobre esse projeto
@@ -20,7 +20,9 @@ Este é um projeto que deve ser rodado após o Eureka Server estar rodando, para
 1 -> <a href="https://github.com/ValterGabriell/bank-system-eureka-server">Eureka Server</a></br>
 2 -> <a href="https://github.com/ValterGabriell/bank-system-mscards">Microserviço responsável por criar cartões para os usuários</a></br>
 3 -> <a href="https://github.com/ValterGabriell/bank-system-msaccount">Microserviço responsável por criar contas dos usuários</a></br>
-4 -> <a href="https://github.com/ValterGabriell/bank-system-gateway">Gateway para fazer o loadbalancer dos microserviços</a></br>
+4 -> <a href="https://github.com/ValterGabriell/software-company-mslead">Microserviço responsável pela criação dos líderes das squads</a></br>
+5 -> <a href="https://github.com/ValterGabriell/software-company-mscolaborators">Microserviço responsável pela criação dos colaboradores das squads</a></br>
+6 -> <a href="https://github.com/ValterGabriell/bank-system-gateway">Gateway para fazer o loadbalancer dos microserviços</a></br>
 
 
   
