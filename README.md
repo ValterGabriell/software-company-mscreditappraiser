@@ -42,14 +42,14 @@ http://localhost:8080/credit
     <th>Response</th>
     <th>Query</th>
     <th>Restrições</th>
-    <th>URL</th>
+
   </tr>
   <tr>
     <td>/request</td>
     <td>requisitar cartão</td>
-    <td>cpf do cliente</td>
+    <td>id</td>
     <td>Um limite precisa ser definido antes (chegar métodos GET)</td>
-    <td>http://localhost:9090/credit/request?cpf=cpfCliente</td>
+   
     
   </tr>
 </table>
@@ -57,9 +57,9 @@ http://localhost:8080/credit
 
 ```bash
 {
-	"protocolValue": "6b4bfe45-ec55-4d48-9998-6aa5d777bd0b",
-	"cpf": "22324671912",
-	"limitApproved": 2925.00
+	"protocolValue": "27cb526d-f00d-4eb1-a4f0-d8e821ec2f5c",
+	"identifier": "63856573232",
+	"limitApproved": 1400.000
 }
 ```
 
