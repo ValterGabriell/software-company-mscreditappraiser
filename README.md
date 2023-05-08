@@ -42,14 +42,14 @@ http://localhost:8080/credit
     <th>Response</th>
     <th>Query</th>
     <th>Restrições</th>
-
+    <th>URL</th>
   </tr>
   <tr>
     <td>/request</td>
     <td>requisitar cartão</td>
-    <td>id</td>
+    <td>cpf do cliente</td>
     <td>Um limite precisa ser definido antes (chegar métodos GET)</td>
-   
+    <td>http://localhost:9090/credit/request?cpf=cpfCliente</td>
     
   </tr>
 </table>
@@ -57,9 +57,9 @@ http://localhost:8080/credit
 
 ```bash
 {
-	"protocolValue": "27cb526d-f00d-4eb1-a4f0-d8e821ec2f5c",
-	"identifier": "63856573232",
-	"limitApproved": 1400.000
+	"protocolValue": "6b4bfe45-ec55-4d48-9998-6aa5d777bd0b",
+	"cpf": "22324671912",
+	"limitApproved": 2925.00
 }
 ```
 
@@ -72,13 +72,11 @@ http://localhost:8080/credit
     <th>Request</th>
     <th>Response</th>
     <th>Query</th>
-    <th>URL</th>
   </tr>
   <tr>
     <td>/limit</td>
     <td>Seta um limite para o cliente</td>
-    <td>cpf cliente</td>
-    <td>http://localhost:9090/credit/limit?cpf=cpfCliente</td>
+    <td>id</td>
   </tr>
 </table>
 
@@ -87,7 +85,7 @@ http://localhost:8080/credit
 <h3>Resposta esperada</h3></br>
 
 ```bash
-2925.00
+1400.000
 ```
 
 </br>
@@ -97,13 +95,11 @@ http://localhost:8080/credit
     <th>Request</th>
     <th>Response</th>
     <th>Query</th>
-    <th>URL</th>
   </tr>
   <tr>
     <td>/account-data</td>
     <td>Recupera dados do cliente ao conversar com o microserviço de conta de cliente.</td>
-    <td>cpf cliente</td>
-    <td>http://localhost:9090/credit/account-data?cpf=cpfCliente</td>
+    <td>id</td>
   </tr>
 </table>
 
@@ -123,6 +119,18 @@ http://localhost:8080/credit
 	"password": "12345",
 	"income": 6500.00
 }
+```
+
+<h1>Testes</h1>
+```
+ @Test
+    void itShouldReturnDifferenceBetweenYears() {
+        int year = LocalDate.of(2022, 04, 03).getYear();
+        int currentYeat = LocalDate.now().getYear();
+        int total = currentYeat - year;
+        assertEquals(1, total);
+    }
+    
 ```
 
 <h1>Créditos</h1>
